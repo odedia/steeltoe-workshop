@@ -1,0 +1,12 @@
+﻿---
+applications:
+- name: single-signon
+  buildpacks:
+   - dotnet_core_buildpack
+  memory: 256M
+  command: cd ${HOME} && ./CloudFoundrySingleSignon
+  env:
+    ASPNETCORE_ENVIRONMENT: Development
+  services:
+   - mySSOService
+  #  - myRedisService

@@ -1,0 +1,11 @@
+﻿---
+applications:
+- name: jwtauth
+  buildpacks:
+   - dotnet_core_buildpack
+  memory: 256M
+  command: cd ${HOME} && ./CloudFoundryJwtAuthentication
+  env:
+    ASPNETCORE_ENVIRONMENT: Development
+  services:
+   - mySSOService

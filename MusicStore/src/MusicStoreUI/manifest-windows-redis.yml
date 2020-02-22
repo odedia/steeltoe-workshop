@@ -1,0 +1,17 @@
+---
+applications:
+- name: musicui
+  memory: 512M
+  stack: windows
+  path: bin/Debug/netcoreapp2.1/publish
+  #command: .\MusicStoreUI
+  routes:
+  - route: musicui-oded.apps.pcfone.io
+  env:
+    ASPNETCORE_ENVIRONMENT: Production
+  services:
+   - mStoreRegistry
+   - mStoreConfig
+   - mStoreAccountsDB
+   - mStoreRedis
+   - mStoreHystrix

@@ -1,0 +1,17 @@
+---
+applications:
+- name: musicui
+  buildpacks:
+   - dotnet_core_buildpack
+  memory: 512M
+  routes:
+  - route: musicui-oded.apps.pcfone.io
+  path: bin/Debug/netcoreapp2.1/publish
+  env:
+    ASPNETCORE_ENVIRONMENT: Production
+  services:
+   - mStoreRegistry
+   - mStoreConfig
+   - mStoreAccountsDB
+   - mStoreRedis
+   - mStoreHystrix

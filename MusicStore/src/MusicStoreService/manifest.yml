@@ -1,0 +1,15 @@
+---
+applications:
+- name: musicstore
+  buildpacks:
+   - dotnet_core_buildpack
+  memory: 256M
+  routes:
+  - route: musicstore-oded.apps.pcfone.io
+  path: bin/Debug/netcoreapp2.1/publish
+  env:
+    ASPNETCORE_ENVIRONMENT: Production
+  services:
+   - mStoreRegistry
+   - mStoreConfig
+   - mStoreStoreDB
